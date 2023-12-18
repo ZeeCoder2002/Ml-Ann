@@ -1,10 +1,12 @@
 # Deep Learning - Implement Neural Network (or Logistic Regression) From Scratch:
+
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 import pandas as pd
 from matplotlib import pyplot as plt
 %matplotlib inline
+
 df = pd.read_csv("insurance_data.csv")
 df.head()
 from sklearn.model_selection import train_test_split
