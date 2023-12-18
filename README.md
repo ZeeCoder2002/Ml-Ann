@@ -14,9 +14,7 @@ X_train_scaled['age'] = X_train_scaled['age'] / 100
 
 X_test_scaled = X_test.copy()
 X_test_scaled['age'] = X_test_scaled['age'] / 100
-model = keras.Sequential([
-    keras.layers.Dense(1, input_shape=(2,), activation='sigmoid', kernel_initializer='ones', bias_initializer='zeros')
-])
+model = keras.Sequential([keras.layers.Dense(1, input_shape=(2,), activation='sigmoid', kernel_initializer='ones', bias_initializer='zeros')])
 
 model.compile(optimizer='adam',
               loss='binary_crossentropy',
@@ -27,6 +25,7 @@ model.evaluate(X_test_scaled,y_test)
 model.predict(X_test_scaled)
 coef, intercept = model.get_weights()
 coef, intercept
+
 # NOW MAKE THE FUNCTUION'S
 def sigmoid(x):
         import math
@@ -34,6 +33,7 @@ def sigmoid(x):
 sigmoid(18)
 
 X_test
+
 # Instead of model.predict, write our own prediction function that uses w1,w2 and bias
 def prediction_function(age, affordibility):
     weighted_sum = coef[0]*age + coef[1]*affordibility + intercept
@@ -51,7 +51,8 @@ def log_loss(y_true, y_predicted):
     y_predicted_new = [min(i,1-epsilon) for i in y_predicted_new]
     y_predicted_new = np.array(y_predicted_new)
     return -np.mean(y_true*np.log(y_predicted_new)+(1-y_true)*np.log(1-y_predicted_new))
-    ## All right now comes the time to implement our own custom neural network class !! yay !!!*
+
+## All right now comes the time to implement our own custom neural network class !! yay !!!*
 class myNN:
     def __init__(self):
         self.w1 = 1 
